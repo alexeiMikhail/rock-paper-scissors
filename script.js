@@ -1,80 +1,63 @@
- /* Write a function that plays a single round of Rock Paper Scissors. 
-The function should take two parameters - the playerSelection and computerSelection - 
-and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
-Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
-Important note: you want to return the results of this function call, not console.log() them. To test this function console.log the results:
-
-function playRound(playerSelection, computerSelection) {
-  // your code here!
-}
-
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
-Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
-You have not officially learned how to “loop” over code to repeat function calls… 
-if you already know about loops from somewhere else (or if you feel like doing some more learning) feel free to use them. 
-If not, don’t worry! Just call your playRound function 5 times in a row. Loops are covered in the next lesson.
-At this point you should be using console.log() to display the results of each round and the winner at the end.
-Use prompt() to get input from the user. Read the docs here if you need to.
-Feel free to re-work your previous functions if you need to. Specifically, you might want to change the return value to something more useful.
-Feel free to create more “helper” functions if you think it would be useful. */
-
     // Start
-    // Output game rules
-    // Declare variables for total points, user choice, computer choice, winner    
-    
-    // Computer chooses rock/paper/scissors via RNG (function computerPlay returns "rock", "paper", or "scissors")
-    function computerPlay () {
-        // Declare computerChoice variable
-        let computerChoice;
-        // Generate random number between 1 and 3
-            // Generate random number between 0 and 1
-            let randNum = Math.random();
-            // Multiply by 3, add one, change to interger
-            randNum = Math.floor(randNum * 3 + 1);
-        // Convert number to string "rock", "paper", or "scissors"
-        if (randNum === 1) {
-            computerChoice = "rock";
-        } else if (randNum === 2) {
-            computerChoice = "paper";
-        } else if (randNum === 3) {
-            computerChoice = "scissors";
-        } else {
-            computerChoice = "error";
-        }
-        // Return computerChoice string
-        return computerChoice;
-    }
-    
-    // Output computer choice
-    console.log(computerPlay());
+    alert(`Welcome to hell.
+    The rules are simple. 
+    You will play rock, paper, scissors with my computer minion.
+    If you reach 5 points before the computer does, then congratulations, you escape with your life.
+    If the computer wins, then you will be trapped in an infinite rock-paper-scissors loop FOREVER!!!!!
+    Muahahahahahahahah!!!!!!!`)
+    // Output game rules  
     
 
-    // Get user's choice
-    function userPlay () {
-        // declare userchoice, userstring variables
-        let userChoice, userString;
-        // Prompt user for input rock/paper/scissors
-        userChoice = prompt("Would you like to play rock, paper, or scissors?");
-        // Make user variable lowercase
-        userChoice = userChoice.toLowerCase();
-        // Check if input is valid, and create userString
-            if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors"){
-                userString = `You have chosen ${userChoice}.`
-            } else {
-                alert("You did not enter a valid selection. Please try again, dumbass.");
-                userString = userPlay();
-            }
-        // Return user-choice as readable string
-        return userString;
-    }
+    
 
-    console.log(userPlay());            
+
+
+    console.log(playRound());            
 
     // Play one round of Rock, Paper, Scissors
     function playRound(userSelection, computerSelection) {
-        // Set total points to 0 for user and computer
+        // Get user's choice
+        function userPlay () {
+            // declare userchoice variables
+            let userChoice;
+            // Prompt user for input rock/paper/scissors
+            userChoice = prompt("Would you like to play rock, paper, or scissors?");
+            // Make user variable lowercase
+            userChoice = userChoice.toLowerCase();
+            // Check if input is valid, and create 
+                if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors"){
+                    alert(`You have chosen ${userChoice}.`)
+                    return userChoice;
+                } else {
+                    alert("You did not enter a valid selection. Please try again, dumbass.");
+                    userChoice = userPlay();
+                }
+        }
+        // Computer chooses rock/paper/scissors via RNG (function computerPlay returns "rock", "paper", or "scissors")
+        function computerPlay () {
+            // Declare computerChoice variable
+            let computerChoice;
+            // Generate random number between 1 and 3
+                // Generate random number between 0 and 1
+                let randNum = Math.random();
+                // Multiply by 3, add one, change to interger
+                randNum = Math.floor(randNum * 3 + 1);
+            // Convert number to string "rock", "paper", or "scissors"
+            if (randNum === 1) {
+                computerChoice = "rock";
+            } else if (randNum === 2) {
+                computerChoice = "paper";
+            } else if (randNum === 3) {
+                computerChoice = "scissors";
+            } else {
+                computerChoice = "error";
+            }
+            // Return computerChoice string
+            return computerChoice;
+        }
+        
+        // Output computer choice
+        return console.log(computerPlay());
         // Call userPlay to get userSelection
         // Call computerPlay to get computerSelection
         // Compare user choice and computer choice
@@ -82,6 +65,7 @@ Feel free to create more “helper” functions if you think it would be useful.
     }
        
     // Play a five-round game of rock-paper-scissors
+        // Set total points to 0 for user and computer
         // Play one round of rock-paper-scissors
         // Check if computer or user reached 5 points
         // Output point totals
