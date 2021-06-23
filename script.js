@@ -1,21 +1,4 @@
-    
-    // Start
-    alert(`Welcome to hell.
-    You will play rock, paper, scissors with my computer minion.
-    If you reach 5 points before the computer does, then congratulations, you escape with your life.
-    If the computer wins, then you will be trapped in an infinite rock-paper-scissors loop FOREVER!!!!!
-    Muahahahahahahahah!!!!!!!`);
-    // Output game rules  
-    alert(`The rules are simple. 
-    Rock beats scissors.
-    Scissors beat paper.
-    Paper beats rock.`);
-    alert(`Good luck.
-    
-    You're going to need it.`);
-    
-
-    console.log(playRound());
+    console.log(fiveGame());
 
     // Get user's choice
     function userPlay () {
@@ -96,8 +79,47 @@
     }
        
     // Play a five-round game of rock-paper-scissors
+    function fiveGame(){   
+        // Start
+        alert(`Welcome to hell.
+        You will play rock, paper, scissors with my computer minion.
+        If you reach 5 points before the computer does, then congratulations, you escape with your life.
+        If the computer wins, then you will be trapped in an infinite rock-paper-scissors loop FOREVER!!!!!
+        Muahahahahahahahah!!!!!!!`);
+        // Output game rules  
+        alert(`The rules are simple. 
+        Rock beats scissors.
+        Scissors beat paper.
+        Paper beats rock.`);
+        alert(`Good luck.
+        
+        You're going to need it.`);
         // Set total points to 0 for user and computer
+        let userPoints = 0;
+        let computerPoints = 0;
+        let winner;
         // Play one round of rock-paper-scissors
         // Check if computer or user reached 5 points
-        // Output point totals
-        // When game ends, declare winner, ask to play again
+        while (userPoints < 5 && computerPoints < 5) {
+            winner = playRound();
+            if (winner === "computer") {
+                computerPoints++;
+            } else if (winner === "user") {
+                userPoints++;
+            } else if (winner === "tie") {
+                // Do nothing
+            } else {
+                alert("Something went wrong with point calculations.");
+            }
+            // Output point totals
+            alert(`User points: ${userPoints}
+            Computer points: ${computerPoints}`)
+        }
+        // Declare winner
+        if (userPoints > computerPoints) {
+            alert(`Congrats, you escaped. Fuck you.`)
+        } else if (computerPoints > userPoints) {
+            alert(`Loser. Try again.`);
+            fiveGame();
+        }
+    }
