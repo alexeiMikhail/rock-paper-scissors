@@ -1,7 +1,4 @@
- /* so begin with a function called computerPlay that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. 
-We’ll use this function in the game to make the computer’s play. 
-Tip: use the console to make sure this is returning the expected output before moving to the next step!
-Write a function that plays a single round of Rock Paper Scissors. 
+ /* Write a function that plays a single round of Rock Paper Scissors. 
 The function should take two parameters - the playerSelection and computerSelection - 
 and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
 Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
@@ -25,11 +22,8 @@ Feel free to create more “helper” functions if you think it would be useful.
 
     // Start
     // Output game rules
-    // Declare variables for total points, user choice, computer choice, winner
-    // Prompt user for input
-    // User chooses rock/paper/scissors
-    // Check if input is valid
-    // Make user variable case-insensitive
+    // Declare variables for total points, user choice, computer choice, winner    
+    
     // Computer chooses rock/paper/scissors via RNG (function computerPlay returns "rock", "paper", or "scissors")
     function computerPlay () {
         // Declare computerChoice variable
@@ -52,10 +46,29 @@ Feel free to create more “helper” functions if you think it would be useful.
         // Return string
         return computerChoice;
     }
-
-    console.log(computerPlay())
+    
     // Output computer choice
-    // Compare user choice and computer choice
-    // Output winner and total cumulative points
-    // End game when computer or user reaches 5 points
-    // When game ends, reset total points
+    console.log(computerPlay())
+
+    // Get user's choice
+    function userPlay () {
+        // Prompt user for input rock/paper/scissors
+        // Check if input is valid
+        // Make user variable case-insensitive
+    }
+            
+
+    // Play one round of Rock, Paper, Scissors
+    function playRound(userSelection, computerSelection) {
+        // Set total points to 0 for user and computer
+        // Call userPlay to get userSelection
+        // Call computerPlay to get computerSelection
+        // Compare user choice and computer choice
+        // Output hand winner
+    }
+       
+    // Play a five-round game of rock-paper-scissors
+        // Play one round of rock-paper-scissors
+        // Check if computer or user reached 5 points
+        // Output point totals
+        // When game ends, declare winner, ask to play again
