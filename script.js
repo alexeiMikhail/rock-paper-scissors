@@ -1,4 +1,4 @@
-    /*
+    
     // Start
     alert(`Welcome to hell.
     You will play rock, paper, scissors with my computer minion.
@@ -13,7 +13,7 @@
     alert(`Good luck.
     
     You're going to need it.`);
-    */
+    
 
     console.log(playRound());
 
