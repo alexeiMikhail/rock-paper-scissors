@@ -43,20 +43,34 @@ Feel free to create more “helper” functions if you think it would be useful.
         } else {
             computerChoice = "error";
         }
-        // Return string
+        // Return computerChoice string
         return computerChoice;
     }
     
     // Output computer choice
-    console.log(computerPlay())
+    console.log(computerPlay());
+    
 
     // Get user's choice
     function userPlay () {
+        // declare userchoice, userstring variables
+        let userChoice, userString;
         // Prompt user for input rock/paper/scissors
-        // Check if input is valid
-        // Make user variable case-insensitive
+        userChoice = prompt("Would you like to play rock, paper, or scissors?");
+        // Make user variable lowercase
+        userChoice = userChoice.toLowerCase();
+        // Check if input is valid, and create userString
+            if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors"){
+                userString = `You have chosen ${userChoice}.`
+            } else {
+                alert("You did not enter a valid selection. Please try again, dumbass.");
+                userString = userPlay();
+            }
+        // Return user-choice as readable string
+        return userString;
     }
-            
+
+    console.log(userPlay());            
 
     // Play one round of Rock, Paper, Scissors
     function playRound(userSelection, computerSelection) {
