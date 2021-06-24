@@ -9,14 +9,16 @@
         // Make user variable lowercase
         userChoice = userChoice.toLowerCase();
         // Check if input is valid, return only a valid userChoice
-            if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors"){
+            if (userChoice === "rock" || userChoice === "paper" || 
+                    userChoice === "scissors") {
                 return userChoice;
             } else {
                 alert("You did not enter a valid selection. Please try again, dumbass.");
             }
     }
 
-    // Computer chooses rock/paper/scissors via RNG (function computerPlay returns "rock", "paper", or "scissors")
+    // Computer chooses rock/paper/scissors via RNG 
+    // (function computerPlay returns "rock", "paper", or "scissors")
     function computerPlay () {
         // Declare computerChoice variable
         let computerChoice;
@@ -54,10 +56,14 @@
         if (userSelection === computerSelection) {// Check for tie condition
             winner = "tie";
         // Check for user win
-        } else if (userSelection === "rock" && computerSelection === "scissors" || userSelection === "paper" && computerSelection === "rock" || userSelection === "scissors" && computerSelection === "paper") {
+        } else if (userSelection === "rock" && computerSelection === "scissors" ||
+                userSelection === "paper" && computerSelection === "rock" || 
+                userSelection === "scissors" && computerSelection === "paper") {
             winner = "user"; 
             // Check for computer win
-        } else if (userSelection === "paper" && computerSelection === "scissors" || userSelection === "scissors" && computerSelection === "rock" || userSelection === "rock" && computerSelection === "paper") {
+        } else if (userSelection === "paper" && computerSelection === "scissors" ||
+                userSelection === "scissors" && computerSelection === "rock" ||
+                userSelection === "rock" && computerSelection === "paper") {
             winner = "computer";
             // Else "something went wrong"
         } else {
