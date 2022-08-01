@@ -1,4 +1,6 @@
-    console.log(fiveGame());
+
+
+/*    console.log(fiveGame());
 
     // Get user's choice
     function userPlay () {
@@ -128,4 +130,4 @@
             alert(`Loser. Try again.`);
             fiveGame();
         }
-    }
+    } */

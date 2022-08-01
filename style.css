@@ -1,0 +1,26 @@
+img {
+    width: 300px;
+}
+
+#credits {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 0;
+}
+
+button {
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
