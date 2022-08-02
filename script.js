@@ -10,7 +10,7 @@ var lastPlayComp = document.getElementById("comp-last");
 var userScore = 0;
 var compScore = 0;
 const userPicCount = 6;
-const robotPicCount = 5;
+const robotPicCount = 15;
 
 
 console.log("HI")
