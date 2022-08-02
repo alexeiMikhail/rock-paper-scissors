@@ -1,33 +1,27 @@
 // Variable declarations
 
-const btns = document.querySelectorAll("button");
-var userScoreElement = document.querySelector("#user-score");
-var compScoreElement = document.querySelector("#comp-score");
-var userPic = document.getElementById("user-pic");
-var compPic = document.getElementById("comp-pic");
-var lastPlayUser = document.getElementById("user-last");
-var lastPlayComp = document.getElementById("comp-last");
-var userScore = 0;
-var compScore = 0;
-const userPicCount = 6;
-const robotPicCount = 15;
-
-var player = {
-    user: {
-        scoreElement: document.querySelector("#user-score"),
-        pic: document.getElementById("user-pic"),
-        lastPlay: document.getElementById("user-last"),
-        score: 0,
-        picCount: 6,
-    },
-    comp: {
-        scoreElement: document.querySelector("#comp-score"),
-        pic: document.getElementById("comp-pic"),
-        lastPlay: document.getElementById("comp-last"),
-        score: 0,
-        picCount: 15,
-    }
+var user =  {
+    scoreElement: document.querySelector("#user-score"),
+    pic: document.getElementById("user-pic"),
+    lastPlay: document.getElementById("user-last"),
+    score: 0,
+    picCount: 6,
 }
+var comp = {
+    scoreElement: document.querySelector("#comp-score"),
+    pic: document.getElementById("comp-pic"),
+    lastPlay: document.getElementById("comp-last"),
+    score: 0,
+    picCount: 15,
+}
+
+const weapons = {
+    rock: {beats: "scissors"},
+    paper: {beats: "rock"},
+    scissors: {beats: "paper"}
+}
+
+const btns = document.querySelectorAll("button");
 
 // Main
 
@@ -47,27 +41,21 @@ function randomAvatar(count) {
 }
 
 function userAvatar() {
-    player.user.pic.src = "assets/humans/" + randomAvatar(player.user.picCount).toString() + ".png";
+    user.pic.src = "assets/humans/" + randomAvatar(user.picCount).toString() + ".png";
 }
 
 function compAvatar() {
-    player.comp.pic.src = "assets/robots/" + randomAvatar(player.comp.picCount).toString() + ".png";
-}
-
-const weapons = {
-    rock: {beats: "scissors"},
-    paper: {beats: "rock"},
-    scissors: {beats: "paper"}
+    comp.pic.src = "assets/robots/" + randomAvatar(comp.picCount).toString() + ".png";
 }
 
 function userPlay(btnClicked) {
-    lastPlayUser.src = "assets/" + btnClicked.id + ".png";
+    user.lastPlay.src = "assets/" + btnClicked.id + ".png";
     return btnClicked.id;
 }
 
 function computerPlay () {
     let randNum = Math.floor(Math.random()*3);
-    lastPlayComp.src = "assets/" + btns[randNum].id + ".png";
+    comp.lastPlay.src = "assets/" + btns[randNum].id + ".png";
     return btns[randNum].id;
 }
 
@@ -89,13 +77,13 @@ function updateScore (winner) {
         return;
     }
     if (winner === "user") {
-        player.user.score++;
-        player.user.scoreElement.innerHTML = player.user.score;
+        user.score++;
+        user.scoreElement.innerHTML = user.score;
         return;
     }
     if (winner === "comp") {
-        player.comp.score++;
-        player.comp.scoreElement.innerHTML = player.comp.score;
+        comp.score++;
+        comp.scoreElement.innerHTML = comp.score;
         return;
     }
 }
