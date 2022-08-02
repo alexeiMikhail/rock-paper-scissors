@@ -1,12 +1,47 @@
+// Variable declarations
+
 const btns = document.querySelectorAll("button");
 var userScoreElement = document.querySelector("#user-score");
 var compScoreElement = document.querySelector("#comp-score");
+var userPic = document.getElementById("user-pic");
+var compPic = document.getElementById("comp-pic");
 var lastPlayUser = document.querySelector("#user-last");
 var lastPlayComp = document.querySelector("#comp-last");
 var userScore = 0;
 var compScore = 0;
+const userPicCount = 6;
+const robotPicCount = 5;
+
 
 console.log("HI")
+console.log(randomAvatar(5));
+console.log(typeof(randomAvatar(userPicCount).toString()));
+//console.log(userPic);
+
+// Main
+
+userAvatar();
+compAvatar();
+
+btns.forEach(function(element) {
+    element.addEventListener("click", () => {
+        updateScore(declareWinner(userPlay(element), computerPlay()));
+    })
+})
+
+// Functions
+
+function randomAvatar(count) {
+    return Math.ceil(Math.random() * count);
+}
+
+function userAvatar() {
+    userPic.src = "assets/humans/" + randomAvatar(userPicCount).toString() + ".png";
+}
+
+function compAvatar() {
+    compPic.src = "assets/robots/" + randomAvatar(robotPicCount).toString() + ".png";
+}
 
 const weapons = {
     rock: {beats: "scissors"},
@@ -42,19 +77,13 @@ function updateScore (winner) {
     }
     if (winner === "user") {
         userScore++;
-        userScoreElement.innerHTML = "User: " + userScore;
+        userScoreElement.innerHTML = userScore;
     }
     if (winner === "comp") {
         compScore++;
-        compScoreElement.innerHTML = "Computer: " + compScore;
+        compScoreElement.innerHTML = compScore;
     }
 }
-
-btns.forEach(function(element) {
-    element.addEventListener("click", () => {
-        updateScore(declareWinner(userPlay(element), computerPlay()));
-    })
-})
 
 /*    console.log(fiveGame());
 
