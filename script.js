@@ -1,4 +1,58 @@
+const btns = document.querySelectorAll("button");
+var userScoreElement = document.querySelector("#user-score");
+var compScoreElement = document.querySelector("#comp-score");
+var userScore = 0;
+var compScore = 0;
 
+console.log("HI")
+
+const weapons = {
+    rock: {beats: "scissors"},
+    paper: {beats: "rock"},
+    scissors: {beats: "paper"}
+}
+
+function userPlay(btnClicked) {
+    return btnClicked.id;
+}
+
+function computerPlay () {
+    let randNum = Math.floor(Math.random()*3);
+    return btns[randNum].id;
+}
+
+function declareWinner (user, comp) {
+    if (user === comp) {
+        return "draw"
+    }
+    if (weapons[user].beats === comp) {
+        return "user"
+    }
+    if (weapons[comp].beats === user) {
+        return "comp"
+    }
+    else return "winner unknown"
+}
+
+function updateScore (winner) {
+    if (winner === "draw") {
+        return
+    }
+    if (winner === "user") {
+        userScore++;
+        userScoreElement.innerHTML = "User: " + userScore;
+    }
+    if (winner === "comp") {
+        compScore++;
+        compScoreElement.innerHTML = "Computer: " + compScore;
+    }
+}
+
+btns.forEach(function(element) {
+    element.addEventListener("click", () => {
+        updateScore(declareWinner(userPlay(element), computerPlay()));
+    })
+})
 
 /*    console.log(fiveGame());
 

@@ -24,3 +24,8 @@ h1 {
     display: flex;
     justify-content: center;
 }
+
+#score-board {
+    display: flex;
+    justify-content: space-evenly;
+}
