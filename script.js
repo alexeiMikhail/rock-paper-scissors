@@ -1,6 +1,8 @@
 const btns = document.querySelectorAll("button");
 var userScoreElement = document.querySelector("#user-score");
 var compScoreElement = document.querySelector("#comp-score");
+var lastPlayUser = document.querySelector("#user-last");
+var lastPlayComp = document.querySelector("#comp-last");
 var userScore = 0;
 var compScore = 0;
 
