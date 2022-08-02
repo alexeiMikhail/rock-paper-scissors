@@ -1,6 +1,5 @@
 img {
-    width: 300px;
-    height: 300px;
+    height: 200px;
 }
 
 #credits {
@@ -18,7 +17,8 @@ button {
 
 #button-container {
     display: flex;
-    justify-content: center;
+    justify-content: stretch;
+    flex-direction: column;
 }
 
 h1 {
@@ -28,11 +28,20 @@ h1 {
 
 #score-board {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 #score-board div {
     font-size: 36px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 200px;
+    align-items: center;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
 }
