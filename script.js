@@ -5,8 +5,8 @@ var userScoreElement = document.querySelector("#user-score");
 var compScoreElement = document.querySelector("#comp-score");
 var userPic = document.getElementById("user-pic");
 var compPic = document.getElementById("comp-pic");
-var lastPlayUser = document.querySelector("#user-last");
-var lastPlayComp = document.querySelector("#comp-last");
+var lastPlayUser = document.getElementById("user-last");
+var lastPlayComp = document.getElementById("comp-last");
 var userScore = 0;
 var compScore = 0;
 const userPicCount = 6;
@@ -50,11 +50,13 @@ const weapons = {
 }
 
 function userPlay(btnClicked) {
+    lastPlayUser.src = "assets/" + btnClicked.id + ".png";
     return btnClicked.id;
 }
 
 function computerPlay () {
     let randNum = Math.floor(Math.random()*3);
+    lastPlayComp.src = "assets/" + btns[randNum].id + ".png";
     return btns[randNum].id;
 }
 

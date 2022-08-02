@@ -1,5 +1,5 @@
 img {
-    height: 200px;
+    width: 200px;
 }
 
 #credits {
@@ -17,7 +17,6 @@ button {
 
 #button-container {
     display: flex;
-    justify-content: stretch;
     flex-direction: column;
 }
 
@@ -36,9 +35,11 @@ h1 {
     font-size: 36px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;    
     font-size: 200px;
     align-items: center;
+    padding-right: 50px;
+    margin-left: 100px;
 }
 
 body {
